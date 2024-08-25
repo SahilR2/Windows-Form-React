@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import MainForm from './components/MainForm';
+import CreateSubmissionForm from './components/CreateSubmission';
+import ViewSubmissions from './components/ViewSubmissions';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="p-8">
+        <Routes>
+          <Route path="/" element={<MainForm />} />
+          <Route path="/view-submissions" element={<ViewSubmissions />} />
+          <Route path="/create-submission" element={<CreateSubmissionForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
